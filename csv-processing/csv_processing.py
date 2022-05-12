@@ -1,12 +1,15 @@
 import re
-from os.path import splitext, basename
-from util import get_files_with_suffix
-import pandas as pd
+from os.path import splitext, basename, join, isfile
+from os import listdir
+from fnmatch import fnmatch
+from pandas import to_timedelta
 
 identifier_regex = r"([A-Za-z])+(\d{2})(\d{2})"
 decimal_separator = ','
 value_separator = ";"
 
+def get_files_with_suffix(search_path, suffix):
+    return [join(search_path,file) for file in listdir(search_path) if isfile(file) and fnmatch(file,f"*.{suffix}")]
 
 def csv_string_to_dict(csv_string):
     [fields_string, data_string, *_] = csv_string.split("\n")
@@ -20,7 +23,7 @@ def process_dictionary(dictionary):
 
     start = dictionary.pop("start")
     end = dictionary.pop("end")
-    delta = pd.to_timedelta(end) - pd.to_timedelta(start)
+    delta = to_timedelta(end) - to_timedelta(start)
     regex_result = re.search(identifier_regex, identifier)
 
     dictionary["file"] = identifier
@@ -37,8 +40,8 @@ def dictionary_to_csv_string(dictionary):
     keys = [key for key in dictionary.keys()]
     csv_string += value_separator.join(keys)
     csv_string += "\n"
-    csv_string += value_separator.join(values)
-    return csv_string.replace(".", decimal_separator)
+    csv_string += value_separator.join(values).replace(".",",")
+    return csv_string
 
 
 def process_csv_file(filepath):
