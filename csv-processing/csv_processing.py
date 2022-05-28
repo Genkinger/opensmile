@@ -9,7 +9,7 @@ decimal_separator = ','
 value_separator = ";"
 
 def get_files_with_suffix(search_path, suffix):
-    return [join(search_path,file) for file in listdir(search_path) if isfile(file) and fnmatch(file,f"*.{suffix}")]
+    return [join(search_path,file) for file in listdir(search_path) if isfile(join(search_path,file)) and fnmatch(file,f"*.{suffix}")]
 
 def csv_string_to_dict(csv_string):
     [fields_string, data_string, *_] = csv_string.split("\n")
