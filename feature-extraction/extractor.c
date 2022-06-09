@@ -15,58 +15,58 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 */
 ///================================
 
-
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <winsock.h>
+
 #include <assert.h>
+#define ASSERT(Condition,Message) assert(Condition && Message)
 
-#define ASSERT(Condition,Message) (assert((Condition) && (Message)))
+#define OLMEGA_IMPLEMENTATION
+#include "olmega.h"
 
-#define BLOB_IMPLEMENTATION
-#include "blob.h"
-
-#define OLMEGA_FEAT_IMPLEMENTATION
-#include "olmega_feat.h"
-
-
-
-
-typedef struct
+uint8_t *ReadEntireFile(const char* FilePath, size_t *OutputSize)
 {
-    size_t Size;
-    uint8_t *Data;
-} load_file_result;
+    uint8_t *Data = NULL;    
+    FILE *FileDescriptor = fopen(FilePath, "rb");
+    fseek(FileDescriptor,0,SEEK_END);
+    *OutputSize = ftell(FileDescriptor);
+    rewind(FileDescriptor);
+    Data = malloc(*OutputSize);
+    ASSERT(Data,"Allocation failure!");
+    fread(Data,*OutputSize,1,FileDescriptor);
+    fclose(FileDescriptor);
 
-load_file_result
-LoadFile(const char* Filepath){
-    load_file_result Result = {0};
-    FILE *File = fopen(Filepath,"rb");
-    ASSERT(File,"Failed to open File");
-    fseek(File,0,SEEK_END);
-    Result.Size = ftell(File);
-    rewind(File);
-    Result.Data = malloc(Result.Size);
-    ASSERT(Result.Size == fread(Result.Data,1,Result.Size,File),"Failed to read file");
-    fclose(File);
-    return(Result);
+    return(Data);
 }
 
-void
-FreeFile(load_file_result Result)
+void WriteStringToFile(const char* FilePath, char* Data, size_t Size)
 {
-    free(Result.Data);
+    FILE *FileDescriptor = fopen(FilePath, "wb");
+    fwrite(Data,Size,1,FileDescriptor);
+    fclose(FileDescriptor);
 }
 
 int32_t
-main(int32_t Count, char** Arguments)
+main(int32_t Count, char **Arguments)
 {
-    load_file_result Result = LoadFile(Arguments[1]);
-    olmega_feat_t *Feat = olmega_feat_create_from(Result.Data,Result.Size);
-    olmega_feat_print_header(Feat);
+
+    ASSERT(Count == 3, "Invalid number of arguments!");
+    
+    size_t Size = 0;
+    size_t CSVSize = 0;
+    uint8_t *Data = NULL;
+    olmega_feat Feat = {};
+    char* CSVString = NULL;
+    
+    Data = ReadEntireFile(Arguments[1],&Size);
+    Feat = olmega_feat_create(Data,Size);    
+    CSVString = olmega_csv_string_create(Feat,&CSVSize);
+    
+    WriteStringToFile(Arguments[2],CSVString,CSVSize);
+
+    olmega_csv_string_destroy(CSVString);
     olmega_feat_destroy(Feat);
-    FreeFile(Result);
+    free(Data);
+    
     return(0);
 }
-
