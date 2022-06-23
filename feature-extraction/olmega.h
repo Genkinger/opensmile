@@ -192,7 +192,7 @@ OLMEGADEF void olmega_feat_destroy(olmega_feat feat)
 
 OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
 {
-    const uint8_t precision = 6;
+    const uint8_t precision = 4;
     const char* dummy_scientific_notation = "xE+000";
     size_t cursor = 0;
     
