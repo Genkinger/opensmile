@@ -197,8 +197,8 @@ OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
     size_t cursor = 0;
     
     uint32_t datum_string_length = strlen(dummy_scientific_notation) + (precision > 0 ? 1 : 0) + precision;
-    uint32_t csv_string_length = (datum_string_length * (feat.header.feature_dimensions + 1)) * feat.header.block_count;
-
+    uint32_t csv_string_length = ((datum_string_length+1) * feat.header.feature_dimensions) * feat.header.block_count;
+    printf("CSV Length: %d\n",csv_string_length);
     char* output_csv = malloc(csv_string_length);
     OLMEGA_ASSERT(output_csv,"Allocation failure!");
 
@@ -207,7 +207,7 @@ OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
         for(int32_t dimension = 0; dimension < feat.header.feature_dimensions; dimension++)
         {
             sprintf(output_csv + cursor,"%.*E,",precision,feat.data[block * feat.header.feature_dimensions + dimension]);
-            cursor+=datum_string_length+1;
+            cursor += datum_string_length+1;
         }
         cursor--;
         sprintf(output_csv + cursor,"\n");
