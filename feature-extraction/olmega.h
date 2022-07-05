@@ -93,6 +93,20 @@ OLMEGADEF void olmega_csv_string_destroy(char* csv_string);
 //// IMPLEMENTATION ////
 #if defined(OLMEGA_IMPLEMENTATION)
 
+enum
+{
+    O32_LITTLE_ENDIAN = 0x03020100ul,
+    O32_BIG_ENDIAN = 0x00010203ul,
+    O32_PDP_ENDIAN = 0x01000302ul,      /* DEC PDP-11 (aka ENDIAN_LITTLE_WORD) */
+    O32_HONEYWELL_ENDIAN = 0x02030001ul /* Honeywell 316 (aka ENDIAN_BIG_WORD) */
+};
+
+static const union { unsigned char bytes[4]; uint32_t value; } o32_host_order =
+    { { 0, 1, 2, 3 } };
+
+#define O32_HOST_ORDER (o32_host_order.value)
+
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -100,7 +114,7 @@ OLMEGADEF void olmega_csv_string_destroy(char* csv_string);
 extern "C" {
 #endif
 
-#define OLMEGA_IS_LITTLE_ENDIAN (1 == *(uint8_t *)&(const int32_t){1})
+#define OLMEGA_IS_LITTLE_ENDIAN (O32_HOST_ORDER == O32_LITTLE_ENDIAN)
 
 #ifndef OLMEGA_ASSERT
 #include <assert.h>
@@ -170,7 +184,7 @@ OLMEGADEF olmega_feat olmega_feat_create(uint8_t *data, size_t size)
     cursor += sizeof(feat.header.bluetooth_transmitter_mac);
 
 
-    feat.data = malloc(sizeof(float) * feat.header.block_count * feat.header.feature_dimensions);
+    feat.data = (float*) malloc(sizeof(float) * feat.header.block_count * feat.header.feature_dimensions);
     OLMEGA_ASSERT(feat.data, "Allocation failure!");
 
     for(int32_t index = 0; index < feat.header.block_count * feat.header.feature_dimensions; index++)
@@ -189,7 +203,7 @@ OLMEGADEF void olmega_feat_destroy(olmega_feat feat)
     }
 }
 
-
+/*
 OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
 {
     const uint8_t precision = 4;
@@ -199,7 +213,7 @@ OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
     uint32_t datum_string_length = strlen(dummy_scientific_notation) + (precision > 0 ? 1 : 0) + precision;
     uint32_t csv_string_length = ((datum_string_length+1) * feat.header.feature_dimensions) * feat.header.block_count;
     printf("CSV Length: %d\n",csv_string_length);
-    char* output_csv = malloc(csv_string_length);
+    char* output_csv = (char*) malloc(csv_string_length);
     OLMEGA_ASSERT(output_csv,"Allocation failure!");
 
     for(int32_t block = 0; block < feat.header.block_count; block++)
@@ -218,7 +232,7 @@ OLMEGADEF char* olmega_csv_string_create(olmega_feat feat, size_t *output_size)
 
     return(output_csv);
 }
-
+*/
 
 OLMEGADEF void olmega_csv_string_destroy(char* csv_string)
 {
@@ -229,7 +243,7 @@ OLMEGADEF void olmega_csv_string_destroy(char* csv_string)
     csv_string = NULL;
 }
 
-
+/*
 OLMEGADEF void olmega_print_header_debug(olmega_feat_header header)
 {
     printf("Version: %d\nBlock Count: %d\nFeature Dimensions:%d\nBlock Size: %d\nHop Size: %d\nSampling Rate: %d\nSample Timestamp: %.16s\nSystem Timestamp: %.16s\nCalibration CH 1: %f\nCalibration CH 2: %f\nAndroid Identification: %.16s\nBluetooth Transmitter MAC: %.17s\n",
@@ -247,7 +261,7 @@ OLMEGADEF void olmega_print_header_debug(olmega_feat_header header)
            header.bluetooth_transmitter_mac
            );
 }
-
+*/
 #ifdef __cplusplus
 }
 #endif

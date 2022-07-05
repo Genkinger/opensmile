@@ -60,13 +60,13 @@ main(int32_t Count, char **Arguments)
     
     Data = ReadEntireFile(Arguments[1],&Size);
     Feat = olmega_feat_create(Data,Size);    
+    olmega_print_header_debug(Feat.header);
     CSVString = olmega_csv_string_create(Feat,&CSVSize);
-    
+ 
     WriteStringToFile(Arguments[2],CSVString,CSVSize);
 
     olmega_csv_string_destroy(CSVString);
     olmega_feat_destroy(Feat);
-    free(Data);
-    
+    free(Data);  
     return(0);
 }
