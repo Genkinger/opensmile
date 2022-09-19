@@ -144,10 +144,10 @@ namespace Olmega
     std::string Feat::CSV()
     {
         std::stringstream Stream;
-        Stream << "Start;Stop";
+        Stream << "Start,Stop";
         for(size_t i = 0; i < FeatureDimensions - 2; i++)
         {
-            Stream << ";";
+            Stream << ",";
         }
         Stream << "\n";
         
@@ -159,13 +159,13 @@ namespace Olmega
                 Stream << Feature[i];
                 if(i != Feature.size()-1)
                 {
-                    Stream << ";";
+                    Stream << ",";
                 }
             }
                 Stream << "\n";
         }
         std::string Result = Stream.str();
-        std::replace(std::begin(Result), std::end(Result), '.',',');
+//        std::replace(std::begin(Result), std::end(Result), '.',',');
         return Result;
     }
 }
