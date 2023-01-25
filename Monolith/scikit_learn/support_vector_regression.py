@@ -1,6 +1,6 @@
 from sklearn import svm
 import numpy as np
-from FeatureSelection import *
+from feature_selection import *
 from sklearn.model_selection import train_test_split
 
 

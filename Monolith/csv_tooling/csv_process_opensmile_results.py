@@ -1,15 +1,10 @@
-import re
-from os.path import splitext, basename, join, isfile
-from os import listdir
-from fnmatch import fnmatch
+from os.path import splitext, basename
 from pandas import to_timedelta
+from common import get_file_paths_with_extension
 
-identifier_regex = r"([A-Za-z])+(\d{2})(\d{2})"
 decimal_separator = ','
 value_separator = ";"
 
-def get_files_with_suffix(search_path, suffix):
-    return [join(search_path,file) for file in listdir(search_path) if isfile(join(search_path,file)) and fnmatch(file,f"*.{suffix}")]
 
 def csv_string_to_dict(csv_string):
     [fields_string, data_string, *_] = csv_string.split("\n")
@@ -24,12 +19,14 @@ def process_dictionary(dictionary):
     start = dictionary.pop("start")
     end = dictionary.pop("end")
     delta = to_timedelta(end) - to_timedelta(start)
-    regex_result = re.search(identifier_regex, identifier)
+
+    subject = identifier[:-2]
+    audio_track = identifier[-2:]
 
     dictionary["file"] = identifier
     items = list(dictionary.items())
-    items.insert(1, ("subject", regex_result.group(2)))
-    items.insert(2, ("audio_track", regex_result.group(3)))
+    items.insert(1, ("subject", subject))
+    items.insert(2, ("audio_track", audio_track))
     items.insert(3, ("duration", delta.total_seconds()))
     return dict(items)
 
@@ -40,7 +37,7 @@ def dictionary_to_csv_string(dictionary):
     keys = [key for key in dictionary.keys()]
     csv_string += value_separator.join(keys)
     csv_string += "\n"
-    csv_string += value_separator.join(values).replace(".",",")
+    csv_string += value_separator.join(values).replace(".", ",")
     return csv_string
 
 
@@ -55,5 +52,7 @@ def process_csv_file(filepath):
 
 
 # CHANGE THIS PATH TO REFLECT YOURS
-for path in get_files_with_suffix("./", "csv"):
+input_directory = "./"
+
+for path in get_file_paths_with_extension(input_directory, "csv"):
     process_csv_file(path)

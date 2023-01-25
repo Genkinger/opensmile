@@ -1,12 +1,6 @@
 from re import search
-from os import listdir
-from os.path import isfile, join, basename
-from fnmatch import fnmatch
-
-
-def get_file_paths_with_extension(path, extension):
-    return [join(path, file_name) for file_name in listdir(path) if
-            (isfile(join(path, file_name)) and fnmatch(file_name, f"*.{extension}"))]
+from os.path import basename
+from common import get_file_paths_with_extension
 
 
 def is_not_empty(string):
@@ -56,8 +50,8 @@ def process_file_inplace(path):
 
 
 def main():
-    directory = "./" # search path for files
-    extension = "csv" # extensions to filter for
+    directory = "./"  # search path for files
+    extension = "csv"  # extensions to filter for
     for path in get_file_paths_with_extension(directory, extension):
         process_file_inplace(path)
 
