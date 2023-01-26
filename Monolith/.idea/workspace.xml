@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ac031f1-169d-4295-bbe2-dfd88da7674a" name="Changes" comment="" />
+    <list default="true" id="3ac031f1-169d-4295-bbe2-dfd88da7674a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep-filter-net-2/enhance_folder_dumb.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_filter_net_2/enhance_folder_dumb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech_rate_extraction/extract_speech_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_rate_extraction/extract_speech_rate.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,15 +32,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;W:/opensmile/Monolith/deep-filter-net-2/enhance_folder_dumb.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "W:/opensmile/Monolith/speech_rate_extraction/extract_speech_rate.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="W:\opensmile\Monolith\deep-filter-net-2" />
@@ -44,7 +48,7 @@
       <recent name="W:\opensmile\Monolith\csv_tooling" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.csv_change_format">
+  <component name="RunManager" selected="Python.extract_speech_rate">
     <configuration name="csv_change_format" type="PythonConfigurationType" factoryName="Python" folderName="CSV">
       <module name="Monolith" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="W:\opensmile\Monolith\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep-filter-net-2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deep_filter_net_2" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep-filter-net-2/enhance_folder_dumb.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deep_filter_net_2/enhance_folder_dumb.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,11 +120,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="W:\opensmile\Monolith\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/speech-rate" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/speech_rate_extraction" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/speech-rate/speech_rate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/speech_rate_extraction/extract_speech_rate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

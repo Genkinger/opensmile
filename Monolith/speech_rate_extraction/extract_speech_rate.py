@@ -48,3 +48,6 @@ def main():
     csv = result_to_csv(res)
     with open("transcript_output.csv", "w+") as output_file:
         output_file.write(csv)
+
+
+main()
