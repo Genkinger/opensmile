@@ -51,8 +51,7 @@ def process_csv_file(filepath):
         out.write(processed_csv)
 
 
-# CHANGE THIS PATH TO REFLECT YOURS
-input_directory = "./"
+input_directory = "./"  # Path to directory with csv files
 
 for path in get_file_paths_with_extension(input_directory, "csv"):
     process_csv_file(path)

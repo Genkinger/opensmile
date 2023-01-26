@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac031f1-169d-4295-bbe2-dfd88da7674a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/opensmile/opensmile_feature_extraction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deep-filter-net-2/enhance_folder_dumb.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_filter_net_2/enhance_folder_dumb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_tooling/csv_process_opensmile_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_tooling/csv_process_opensmile_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech_rate_extraction/extract_speech_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_rate_extraction/extract_speech_rate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +38,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "W:/opensmile/Monolith/speech_rate_extraction/extract_speech_rate.py",
+    "last_opened_file_path": "W:/opensmile/Monolith/opensmile/opensmile_feature_extraction.py",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
@@ -48,7 +49,7 @@
       <recent name="W:\opensmile\Monolith\csv_tooling" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.extract_speech_rate">
+  <component name="RunManager" selected="Python.support_vector_regression">
     <configuration name="csv_change_format" type="PythonConfigurationType" factoryName="Python" folderName="CSV">
       <module name="Monolith" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,6 +155,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="opensmile_feature_extraction" type="PythonConfigurationType" factoryName="Python" folderName="Extraction">
+      <module name="Monolith" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="W:\opensmile\Monolith\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/opensmile" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/opensmile/opensmile_feature_extraction.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="support_vector_regression" type="PythonConfigurationType" factoryName="Python" folderName="SciKIT Learn">
       <module name="Monolith" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,6 +202,7 @@
       <item itemvalue="Python.csv_process_opensmile_results" />
       <item itemvalue="Python.enhance_folder_dumb" />
       <item itemvalue="Python.extract_speech_rate" />
+      <item itemvalue="Python.opensmile_feature_extraction" />
       <item itemvalue="Python.feature_selection" />
       <item itemvalue="Python.support_vector_regression" />
     </list>
