@@ -39,8 +39,7 @@ def result_to_csv(result):
     return output_csv
 
 
-# NOTE(L): WICHTIG - Damit das Skript funktioniert muss das programm ffprobe im PATH sein! ()
-# NOTE(L): Die CSV muss noch processed werden !
+# WICHTIG - Damit das Skript funktioniert muss das programm ffprobe im PATH sein!
 
 # The transcript file needs to be a simple txt file (NOT DOCX or other)
 # NOTE: every transcript needs to be on a separate line!
@@ -56,8 +55,8 @@ def result_to_csv(result):
 # 111.wav nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam ...
 # ...
 
-transcript_path = "./input.txt"  # Path to transcript file
-audio_directory = "./"  # Path to audio files that are referenced in the transcript file
+transcript_path = "./input.txt"  # Path to transcript file in plaintext format (.txt)
+audio_directory = "./"  # Path to folder containing audio files that are referenced in the transcript file
 output_path = "./output.csv"  # Path to output file
 
 result = count_words_per_file(transcript_path, audio_directory)

@@ -12,17 +12,28 @@ def csv_string_to_dict(csv_string):
     return dict(zip(fields, data))
 
 
+# Filenames of Audio Files referenced in the csv file being processed have to follow this pattern:
+# (x+)(y)(y).wav where x and y are Digits from 0..9 and x+ means one or more Digits (parenthesis only used to show separation, they are NOT ALLOWED in the Filename)
+# ########
+# Example:
+#     xyy.wav
+#     |||
+#     vvv
+#     103.wav
 def process_dictionary(dictionary):
     filename = basename(dictionary["file"])
     identifier = splitext(filename)[0]
 
+    # calculate track length, remove start and end timestamps
     start = dictionary.pop("start")
     end = dictionary.pop("end")
     delta = to_timedelta(end) - to_timedelta(start)
 
+    # get subject and track number from wav filename
     subject = identifier[:-2]
     audio_track = identifier[-2:]
 
+    # add subject, audio_track and duration columns to csv
     dictionary["file"] = identifier
     items = list(dictionary.items())
     items.insert(1, ("subject", subject))

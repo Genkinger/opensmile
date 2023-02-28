@@ -3,8 +3,9 @@ from common import get_file_paths_with_extension
 from os.path import basename, join, exists
 from os import mkdir
 
-input_directory = "./"  # Path to folder with wav files
+input_directory = "./"      # Path to folder with wav files
 output_directory = "./out"  # Path to output folder
+
 feature_set = FeatureSet.ComParE_2016
 feature_level = FeatureLevel.Functionals
 
