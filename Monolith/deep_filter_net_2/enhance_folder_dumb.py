@@ -2,7 +2,7 @@ from subprocess import run
 from common import get_file_paths_with_extension
 from os.path import expanduser
 
-input_directory = "./"  # Path to audio files
+input_directory = "./"  # Path to the audio files
 output_directory = "./"  # Path to output directory, files will NOT be replaced if same as input_directory!
 
 wav_files = get_file_paths_with_extension(input_directory, "wav")
