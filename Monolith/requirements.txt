@@ -5,3 +5,7 @@ torch
 soundfile
 torchaudio
 deepfilternet
+resampy
+tensorflow
+sklearn
+vosk
