@@ -61,9 +61,9 @@ def csv_file_change_format_bulk(input_directory, output_directory, format_config
 
 
 input_directory = "./"  # Path to directory of csv files
-output_directory = "./"  # Path to output directory, if this is the same as input_directory, it will replace the input files!
+output_directory = "./"  # Path to output directory. WARNING: IF THIS IS THE SAME AS input_directory, IT WILL REPLACE THE INPUT FILES!
 
-# The third parameter describes the conversion that should be applied
+# The third parameter describes the conversion that should be applied:
 #   NAME | SEPARATOR | DECIMAL |
 # =======|===========|=========|
 # std2de |   , -> ;  | . -> ,  |
