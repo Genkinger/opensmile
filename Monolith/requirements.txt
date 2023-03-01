@@ -9,3 +9,4 @@ resampy
 tensorflow
 sklearn
 vosk
+requests
