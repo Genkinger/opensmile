@@ -7,6 +7,6 @@ torchaudio
 deepfilternet
 resampy
 tensorflow
-sklearn
+scikit-learn
 vosk
 requests
