@@ -12,6 +12,19 @@ def csv_string_to_dict(csv_string):
     return dict(zip(fields, data))
 
 
+def extract_subject_track_from_identifier_legacy(identifier):
+    return identifier[:-2], identifier[-2:]
+
+
+# This function extracts the FIRST TWO parts of an identifier string having the following format:
+# SUBJECT_TRACKNO
+# Subsequent additional information (eg. timestamps etc.) provided after subsequent underscores will be ignored!
+# This means identifiers of the form SUBJECT_TRACKNO_SOMETHING_ENTIRELY_DIFFERENT will not break this as long as the order of parts is maintained
+def extract_subject_track_from_identifier_future_proofed(identifier):
+    parts = identifier.split("_")
+    return parts[0], parts[1]
+
+
 # Filenames of Audio Files referenced in the csv file being processed have to follow this pattern:
 # (x+)(y)(y).wav where x and y are Digits from 0..9 and x+ means one or more Digits (parenthesis only used to show separation, they are NOT ALLOWED in the Filename)
 # ########
@@ -30,8 +43,11 @@ def process_dictionary(dictionary):
     delta = to_timedelta(end) - to_timedelta(start)
 
     # get subject and track number from wav filename
-    subject = identifier[:-2]
-    audio_track = identifier[-2:]
+    #subject = identifier[:-2]
+    #audio_track = identifier[-2:]
+
+    # REPLACE THIS WITH THE "FUTURE PROOFED" VERSION IF NEEDED!
+    subject, audio_track = extract_subject_track_from_identifier_legacy(identifier)
 
     # add subject, audio_track and duration columns to csv
     dictionary["file"] = identifier
