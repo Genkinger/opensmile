@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf684e8-9c4d-4a58-a402-0b722a3ef06b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/yamnet/inference_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yamnet/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vosk/vosk_wrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yamnet/inference_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/yamnet/inference_wrapper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +37,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "W:/testing/opensmile/Monolith/yamnet/inference_wrapper.py",
+    "last_opened_file_path": "W:/testing/opensmile/Monolith/vosk/vosk_wrapper.py",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.opensmile_feature_extraction">
+  <component name="RunManager" selected="Python.vosk_wrapper">
     <configuration name="csv_change_format" type="PythonConfigurationType" factoryName="Python" folderName="CSV" nameIsGenerated="true">
       <module name="Monolith" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,16 +231,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="vosk_wrapper" type="PythonConfigurationType" factoryName="Python" folderName="VOSK" nameIsGenerated="true">
+      <module name="Monolith" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Luna\scoop\apps\python310\current\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/vosk" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vosk/vosk_wrapper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.csv_process_opensmile_results" />
       <item itemvalue="Python.csv_change_format" />
+      <item itemvalue="Python.enhance_folder_dumb" />
+      <item itemvalue="Python.opensmile_feature_extraction" />
       <item itemvalue="Python.feature_selection" />
       <item itemvalue="Python.support_vector_regression" />
       <item itemvalue="Python.extract_speech_rate" />
-      <item itemvalue="Python.opensmile_feature_extraction" />
-      <item itemvalue="Python.enhance_folder_dumb" />
       <item itemvalue="Python.setup" />
       <item itemvalue="Python.inference_wrapper" />
+      <item itemvalue="Python.vosk_wrapper" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
