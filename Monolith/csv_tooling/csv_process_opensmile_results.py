@@ -11,7 +11,14 @@ def csv_string_to_dict(csv_string):
     [fields, data] = [fields_string.split(","), data_string.split(",")]
     return dict(zip(fields, data))
 
-
+# Filenames of Audio Files referenced in the csv file being processed have to follow this pattern:
+# (x+)(y)(y).wav where x and y are Digits from 0..9 and x+ means one or more Digits (parenthesis only used to show separation, they are NOT ALLOWED in the Filename)
+# ########
+# Example:
+#     xyy.wav
+#     |||
+#     vvv
+#     103.wav
 def extract_subject_track_from_identifier_legacy(identifier):
     return identifier[:-2], identifier[-2:]
 
@@ -25,14 +32,6 @@ def extract_subject_track_from_identifier_future_proofed(identifier):
     return parts[0], parts[1]
 
 
-# Filenames of Audio Files referenced in the csv file being processed have to follow this pattern:
-# (x+)(y)(y).wav where x and y are Digits from 0..9 and x+ means one or more Digits (parenthesis only used to show separation, they are NOT ALLOWED in the Filename)
-# ########
-# Example:
-#     xyy.wav
-#     |||
-#     vvv
-#     103.wav
 def process_dictionary(dictionary):
     filename = basename(dictionary["file"])
     identifier = splitext(filename)[0]
