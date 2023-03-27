@@ -1,6 +1,7 @@
 from os.path import splitext, basename
 from pandas import to_timedelta
 from common import get_file_paths_with_extension
+from os.path import join, basename
 
 decimal_separator = ','
 value_separator = ";"
@@ -30,7 +31,6 @@ def extract_subject_track_from_identifier_legacy(identifier):
 def extract_subject_track_from_identifier_future_proofed(identifier):
     parts = identifier.split("_")
     return parts[0], parts[1]
-
 
 def process_dictionary(dictionary):
     filename = basename(dictionary["file"])
@@ -67,17 +67,18 @@ def dictionary_to_csv_string(dictionary):
     return csv_string
 
 
-def process_csv_file(filepath):
+def process_csv_file(input_file_path, output_file_path):
     processed_csv = ""
-    with open(filepath, "r") as input_csv:
+    with open(input_file_path, "r") as input_csv:
         result = csv_string_to_dict(input_csv.read().strip())
         result = process_dictionary(result)
         processed_csv = dictionary_to_csv_string(result)
-    with open(filepath, "w") as out:
+    with open(output_file_path, "w") as out:
         out.write(processed_csv)
 
 
 input_directory = "./"  # Path to directory with csv files
+output_directory = "./"  # Path to output directory, if this is the same as input_directory files will be replaced!
 
-for path in get_file_paths_with_extension(input_directory, "csv"):
-    process_csv_file(path)
+for input_file_path in get_file_paths_with_extension(input_directory, "csv"):
+    process_csv_file(input_file_path, join(output_directory, basename(input_file_path)))

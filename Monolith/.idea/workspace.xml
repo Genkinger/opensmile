@@ -251,16 +251,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.csv_process_opensmile_results" />
       <item itemvalue="Python.csv_change_format" />
+      <item itemvalue="Python.csv_process_opensmile_results" />
       <item itemvalue="Python.enhance_folder_dumb" />
-      <item itemvalue="Python.opensmile_feature_extraction" />
-      <item itemvalue="Python.feature_selection" />
-      <item itemvalue="Python.support_vector_regression" />
       <item itemvalue="Python.extract_speech_rate" />
-      <item itemvalue="Python.vosk_wrapper" />
-      <item itemvalue="Python.setup" />
+      <item itemvalue="Python.feature_selection" />
       <item itemvalue="Python.inference_wrapper" />
+      <item itemvalue="Python.opensmile_feature_extraction" />
+      <item itemvalue="Python.setup" />
+      <item itemvalue="Python.support_vector_regression" />
+      <item itemvalue="Python.vosk_wrapper" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
